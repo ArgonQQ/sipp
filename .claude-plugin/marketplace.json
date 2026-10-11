@@ -1,12 +1,12 @@
 {
-  "name": "drink-with-me",
+  "name": "sipp",
   "description": "Mods that judge your life choices from inside Claude Code.",
   "owner": {
     "name": "ArgonQQ"
   },
   "plugins": [
     {
-      "name": "drink-with-me",
+      "name": "sipp",
       "source": "./",
       "description": "A passive-aggressive water reminder for Claude Code. Zero tokens, maximum judgment."
     }

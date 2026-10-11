@@ -13,7 +13,7 @@ import {
   type Settings,
 } from './hydration'
 
-const view = atom({ plugin: 'drink-with-me', key: 'view' } as const, null as Hydration | null)
+const view = atom({ plugin: 'sipp', key: 'view' } as const, null as Hydration | null)
 const LEDGER = 'ledger'
 
 let settings: Settings = settingsFrom({})
@@ -47,7 +47,7 @@ async function refresh($: EngineInterface) {
     const text = `💧 ${nagLine(ledger.nags, now / 60_000)}`
     ledger = { ...ledger, lastNagAt: now, nags: ledger.nags + 1 }
     $.ui.toast(text, { timeoutMs: 12_000 })
-    if (notifies) await $.ui.notify(text, { title: 'Drink with me' }).catch(() => undefined)
+    if (notifies) await $.ui.notify(text, { title: 'sipp' }).catch(() => undefined)
   }
   await $.store.set(LEDGER, ledger)
   await update($, view, () => planned.view)
