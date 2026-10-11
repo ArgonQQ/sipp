@@ -63,11 +63,11 @@ test('pressing the glass button logs a glass', async ($, on) => {
   })
 
   for (const surface of ['terminal', 'desktop'] as const) {
-    const ui = await $.ui.mount({ plugin: 'drink-with-me', surface, ...BAND })
+    const ui = await $.ui.mount({ plugin: 'sipp', surface, ...BAND })
     await ui.press({ key: 'drink' })
     await ui.unmount()
   }
-  const ui = await $.ui.mount({ plugin: 'drink-with-me', surface: 'terminal', ...BAND })
+  const ui = await $.ui.mount({ plugin: 'sipp', surface: 'terminal', ...BAND })
   expect((await ui.find({ type: 'Text', text: /ml/ }))?.text).toContain('1000/2000 ml')
   expect(toasts.length).toBe(3)
 })

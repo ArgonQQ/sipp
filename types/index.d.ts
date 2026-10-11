@@ -11,6 +11,6 @@ export type Hydration = {
 
 declare module 'claude-code' {
   interface PluginState {
-    'drink-with-me': { view: Hydration | null }
+    'sipp': { view: Hydration | null }
   }
 }

@@ -1,6 +1,6 @@
 <p align="center"><img src="assets/logo.svg" width="160" alt="A glass of water with a judgmental face"></p>
 
-<h1 align="center">drink-with-me</h1>
+<h1 align="center">sipp</h1>
 
 <p align="center"><i>Your new drinking buddy. It only drinks water. It is disappointed in you.</i></p>
 
@@ -23,7 +23,7 @@ prompt and judges you about it. Quietly at first, then not.
 In Claude Code:
 
 ```
-/plugin install drink-with-me --marketplace ArgonQQ/sipp
+/plugin install sipp --marketplace ArgonQQ/sipp
 ```
 
 Say `y` to add the marketplace, press Enter for the user scope. Done. That was harder than drinking water, wasn't it?
@@ -43,7 +43,7 @@ I'm watching. Quietly. Judgingly.
 
 ## Configure
 
-`/config` → `drink-with-me`: daily goal, glass size, first/last reminder hour, OS notifications.
+`/config` → `sipp`: daily goal, glass size, first/last reminder hour, OS notifications.
 
 ## Why 2 litres
 
