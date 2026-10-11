@@ -137,10 +137,13 @@ export const plan = (
   const windowStart = midnight + settings.startHour * HOUR
   const windowEnd = midnight + settings.endHour * HOUR
   const seed = now / MINUTE
+  const dayProgress = Math.min(1, Math.max(0, (now - windowStart) / (windowEnd - windowStart)))
+  const expectedMl = Math.round(settings.goalMl * dayProgress)
   const base = {
     drankMl: ledger.drankMl,
     goalMl: settings.goalMl,
     sipMl: settings.sipMl,
+    expectedMl,
     nextInMin: 0,
     isDue: false,
     isOffDuty: false,
@@ -163,7 +166,6 @@ export const plan = (
           ledger.snoozeUntil,
         )
   const isDue = now >= dueAt
-  const expectedMl = (settings.goalMl * (now - windowStart)) / (windowEnd - windowStart)
   const isBehind = ledger.drankMl + settings.sipMl < expectedMl
   const line = isDue
     ? nagLine(ledger.nags, seed)

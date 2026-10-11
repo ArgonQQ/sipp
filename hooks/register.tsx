@@ -27,9 +27,11 @@ const parseOffset = (text: string) => {
   return match[1] === '-' ? -minutes : minutes
 }
 
-const bar = (drank: number, goal: number, width = 10) => {
+const bar = (drank: number, goal: number, expected: number, width = 10) => {
   const filled = Math.min(width, Math.round((drank / goal) * width))
-  return '█'.repeat(filled) + '░'.repeat(width - filled)
+  const cells = ('█'.repeat(filled) + '░'.repeat(width - filled)).split('')
+  cells[Math.min(width - 1, Math.floor((expected / goal) * width))] = '┃'
+  return cells.join('')
 }
 
 async function load($: EngineInterface) {
@@ -119,7 +121,7 @@ export const register: Register = (on, options) => {
       <Box flexDirection="column">
         <Box gap={1}>
           <Text color={state.isDue ? 'red' : 'cyan'}>
-            💧 {bar(state.drankMl, state.goalMl)} {state.drankMl}/{state.goalMl} ml
+            💧 {bar(state.drankMl, state.goalMl, state.expectedMl)} {state.drankMl}/{state.goalMl} ml
           </Text>
           <Text bold={state.isDue} dimColor={!state.isDue}>
             · {when}
