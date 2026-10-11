@@ -19,3 +19,22 @@ jobs:
       - run: npm install -g @anthropic-ai/claude-code
       - run: claude plugin validate .
       - run: claude plugin test .
+
+  version-bump:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Require a higher version than the base branch, so merging releases it
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          base=$(git show "origin/$BASE_REF:.claude-plugin/plugin.json" | jq -r .version)
+          head=$(jq -r .version .claude-plugin/plugin.json)
+          if [ "$head" = "$base" ] || [ "$(printf '%s\n%s\n' "$base" "$head" | sort -V | tail -1)" != "$head" ]; then
+            echo "::error file=.claude-plugin/plugin.json::Bump version above $base (currently $head)"
+            exit 1
+          fi
+          echo "Version $base -> $head"
