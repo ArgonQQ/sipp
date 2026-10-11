@@ -1,0 +1,43 @@
+{
+  "name": "drink-with-me",
+  "version": "0.1.0",
+  "description": "A passive-aggressive water reminder that costs zero tokens.",
+  "author": {
+    "name": "ArgonQQ"
+  },
+  "homepage": "https://github.com/ArgonQQ/sipp",
+  "repository": "https://github.com/ArgonQQ/sipp",
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "dailyGoalMl": {
+      "type": "number",
+      "title": "Daily goal (ml)",
+      "description": "Water from drinks per day. EFSA: ~1600 ml (women) / ~2000 ml (men) from drinks; more in heat or with exercise.",
+      "default": 2000
+    },
+    "sipMl": {
+      "type": "number",
+      "title": "Glass size (ml)",
+      "description": "How much one 'I drank' press logs. 200-250 ml keeps intake spread out.",
+      "default": 250
+    },
+    "dayStartHour": {
+      "type": "number",
+      "title": "First reminder (hour, 0-23)",
+      "description": "Reminders start at this local hour.",
+      "default": 8
+    },
+    "dayEndHour": {
+      "type": "number",
+      "title": "Last reminder (hour, 1-24)",
+      "description": "Reminders stop at this local hour; 1-2 h before bed spares you the 3 a.m. walk.",
+      "default": 21
+    },
+    "nativeNotifications": {
+      "type": "boolean",
+      "title": "Native notifications",
+      "description": "Also nag through the OS notification, for when you have tabbed away to avoid me.",
+      "default": false
+    }
+  }
+}
