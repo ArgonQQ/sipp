@@ -30,6 +30,12 @@ test('the goal is spread evenly over the rest of the day', () => {
   expect(view.nextInMin).toBe(111)
 })
 
+test('the expected intake follows the clock through the day', () => {
+  expect(plan(undefined, settings, at(6), 0).view.expectedMl).toBe(0)
+  expect(plan(undefined, settings, at(14, 30), 0).view.expectedMl).toBe(1000)
+  expect(plan(undefined, settings, at(22), 0).view.expectedMl).toBe(2000)
+})
+
 test('nobody is nagged before the day starts or once the goal is met', () => {
   expect(plan(undefined, settings, at(6), 0).view.isOffDuty).toBe(true)
   const done = { day: '2026-10-11', drankMl: 2000, lastDrinkAt: at(15), snoozeUntil: 0, lastNagAt: 0, nags: 0 }

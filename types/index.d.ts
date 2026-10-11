@@ -2,6 +2,7 @@ export type Hydration = {
   drankMl: number
   goalMl: number
   sipMl: number
+  expectedMl: number
   nextInMin: number
   isDue: boolean
   isOffDuty: boolean

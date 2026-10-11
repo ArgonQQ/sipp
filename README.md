@@ -31,10 +31,11 @@ Say `y` to add the marketplace, press Enter for the user scope. Done. That was h
 ## Use
 
 ```
-💧 ███░░░░░░░ 750/2000 ml · next glass in 42m [ +250 ml ]
+💧 ███░░┃░░░░ 750/2000 ml · next glass in 42m [ +250 ml ]
 I'm watching. Quietly. Judgingly.
 ```
 
+- `┃` marks where you should be by now if you'd kept pace. You haven't.
 - `[ +250 ml ]` logs a glass: click it, or `ctrl+x` `tab` then `d`.
 - `[ Snooze 15m ]` appears when you're overdue (`s`). Procrastinate responsibly.
 - `/drink 500` logs a custom amount; `/drink -250` undoes your lies.
